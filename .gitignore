@@ -1,0 +1,8 @@
+# Build output
+/pulse
+/pulse.exe
+*.exe~
+/dist/
+
+# Local config that may contain credentials
+config.toml

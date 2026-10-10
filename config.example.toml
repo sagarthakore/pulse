@@ -1,0 +1,52 @@
+# pulse configuration
+#
+# Location:
+#   Windows: %AppData%\pulse\config.toml
+#   macOS:   ~/Library/Application Support/pulse/config.toml
+#   Linux:   ~/.config/pulse/config.toml
+#
+# `pulse --setup` writes this file for you and stores the password in the
+# OS keyring (Windows Credential Manager / macOS Keychain / Secret Service).
+
+# Base URL of your Navidrome (or other Subsonic-compatible) server.
+server_url = "http://192.168.1.10:4533"
+username = "me"
+
+# Optional. Prefer the OS keyring (via --setup) or the PULSETUI_PASSWORD
+# environment variable over storing the password here in plain text.
+# password = ""
+
+# Ask the server to transcode every track to MP3 (at max_bitrate). Useful on
+# slow or metered connections. Formats pulse can't decode itself (AAC/M4A,
+# ALAC, Opus, WMA, ...) are always transcoded to MP3 regardless.
+always_transcode = false
+
+# Bitrate in kbps used whenever the server transcodes.
+max_bitrate = 320
+
+# Volume (0-100) at startup; pulse updates this when you quit.
+volume = 80
+
+# By default pulse leaves your terminal's own background (including any
+# transparency/acrylic) visible and only colours text, borders and accents.
+# Set this to paint the solid Catppuccin Mocha base/mantle backgrounds instead.
+opaque_background = false
+
+# Skip TLS certificate verification (self-signed certificates). Only enable
+# this for a server you control on a network you trust.
+insecure_skip_verify = false
+
+# --- Local music ---
+
+# Library shown at startup: "navidrome" or "local". pulse updates this when
+# you quit, so it reopens wherever you were (switch inside pulse with L).
+source = "navidrome"
+
+# Your local music folder. Choose it inside pulse with O rather than editing
+# this by hand.
+music_folder = 'D:\Music'
+
+# ffmpeg plays formats pulse can't decode itself (AAC/M4A, ALAC, Opus, WMA,
+# APE, ...). Leave empty to use ffmpeg from your PATH; without ffmpeg those
+# files are skipped.
+ffmpeg_path = ""
