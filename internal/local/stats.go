@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// stats holds favourites and play counts for a local library, kept in a
+// stats holds favorites and play counts for a local library, kept in a
 // small JSON file next to pulse's config.
 type stats struct {
 	mu   sync.Mutex

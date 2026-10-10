@@ -198,7 +198,7 @@ func TestQueuesAreSeparatePerLibrary(t *testing.T) {
 		t.Fatalf("queues mixed: local=%q nav=%q", songsOf(&m.src().queue), songsOf(&m.sources[SourceNavidrome].queue))
 	}
 	if m.playing != SourceNavidrome {
-		t.Fatal("queueing locally must not take over playback")
+		t.Fatal("queuing locally must not take over playback")
 	}
 
 	// Transport keys follow what's playing; enter in the local queue switches.

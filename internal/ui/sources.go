@@ -31,7 +31,7 @@ func (k SourceKind) String() string {
 	return "navidrome"
 }
 
-// sourceAccents colour each library's name in the header switch.
+// sourceAccents color each library's name in the header switch.
 var sourceAccents = [numSources]lipgloss.Color{cSapphire, cTeal}
 
 // Library is what the UI needs from a music source: the Subsonic-style

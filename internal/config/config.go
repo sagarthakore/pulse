@@ -42,7 +42,7 @@ type Config struct {
 	Volume int `toml:"volume"`
 	// InsecureSkipVerify disables TLS verification (self-signed certs).
 	InsecureSkipVerify bool `toml:"insecure_skip_verify"`
-	// OpaqueBackground paints the Catppuccin Mocha background colours instead
+	// OpaqueBackground paints the Catppuccin Mocha background colors instead
 	// of letting the terminal's own (possibly translucent) background show.
 	OpaqueBackground bool `toml:"opaque_background"`
 

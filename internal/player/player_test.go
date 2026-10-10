@@ -78,7 +78,7 @@ func TestRingError(t *testing.T) {
 	}
 }
 
-// slowBody delivers data in chunks, signalled by the test.
+// slowBody delivers data in chunks, signaled by the test.
 type slowBody struct {
 	chunks chan []byte
 	closed chan struct{}

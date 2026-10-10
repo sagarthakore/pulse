@@ -119,10 +119,10 @@ type Engine struct {
 	vizPos int
 }
 
-// New initialises the audio device and returns a ready engine.
+// New initializes the audio device and returns a ready engine.
 func New(opts Options) (*Engine, error) {
 	if err := speaker.Init(outputRate, outputRate.N(100*time.Millisecond)); err != nil {
-		return nil, fmt.Errorf("initialising audio output: %w", err)
+		return nil, fmt.Errorf("initializing audio output: %w", err)
 	}
 	e := &Engine{events: make(chan Event, 64)}
 	e.setVolumeLocked(opts.Volume)

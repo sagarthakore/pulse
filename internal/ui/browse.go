@@ -338,7 +338,7 @@ func (m *Model) fetchRandom(src *source) tea.Cmd {
 	}
 }
 
-// --- favourites & scrobbling ---
+// --- favorites & scrobbling ---
 
 type starMsg struct {
 	src     SourceKind

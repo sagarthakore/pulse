@@ -22,7 +22,7 @@ external player needed.
 - Scrobbles plays and "now playing" to Navidrome (and on to Last.fm/ListenBrainz if configured there)
 - Password kept in the OS keyring (Windows Credential Manager, macOS Keychain, Secret Service)
 - Styled with the full [Catppuccin Mocha](https://catppuccin.com/palette) palette: per-tab accent
-  colours, gradient progress bar, and a live **spectrum visualizer** computed from the audio actually
+  colors, gradient progress bar, and a live **spectrum visualizer** computed from the audio actually
   playing (press `v` to toggle). Your terminal's background (and its transparency) shows through by
   default; set `opaque_background = true` for solid Mocha backgrounds.
 
@@ -80,7 +80,7 @@ On Linux, audio goes through PulseAudio or PipeWire (`pipewire-pulse`), which de
 distributions run by default.
 
 On Windows, use [Windows Terminal](https://aka.ms/terminal) (the default on Windows 11) for proper
-Unicode and colour support; it works from both PowerShell and cmd.
+Unicode and color support; it works from both PowerShell and cmd.
 
 ## First run
 
@@ -163,7 +163,7 @@ nothing overflows.
 ```
 main.go                 flags, first-run setup, wiring
 internal/subsonic       Subsonic / OpenSubsonic API client (token auth)
-internal/local          music folder library: scanner, cache, favourites, ffmpeg
+internal/local          music folder library: scanner, cache, favorites, ffmpeg
 internal/player         download -> decode -> ring buffer -> speaker engine
 internal/ui             Bubble Tea model, views, key handling
 internal/config         TOML config + OS keyring

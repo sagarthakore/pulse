@@ -83,7 +83,7 @@ func TestViewFitsTerminal(t *testing.T) {
 	}
 }
 
-// withTrueColor renders with 24-bit colour, as Windows Terminal does.
+// withTrueColor renders with 24-bit color, as Windows Terminal does.
 func withTrueColor(t *testing.T) {
 	prev := lipgloss.ColorProfile()
 	lipgloss.SetColorProfile(termenv.TrueColor)

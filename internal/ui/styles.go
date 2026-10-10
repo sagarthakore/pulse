@@ -76,9 +76,9 @@ func pill(text string, bg, fgc lipgloss.Color) string {
 //
 // lipgloss backgrounds don't survive nested styled segments (every segment
 // ends with a full reset), so backgrounds are applied by re-asserting the
-// colour after each reset. Painting is composable: an inner region painted
+// color after each reset. Painting is composable: an inner region painted
 // mantle inside a base-painted screen keeps its mantle, because the inner
-// colour is re-asserted after the outer one.
+// color is re-asserted after the outer one.
 
 const sgrReset = "\x1b[0m"
 
@@ -127,7 +127,7 @@ var (
 	gradientCache = map[string][]lipgloss.Color{}
 )
 
-// gradient returns n colours blended evenly through stops.
+// gradient returns n colors blended evenly through stops.
 func gradient(stops []lipgloss.Color, n int) []lipgloss.Color {
 	if n <= 0 {
 		return nil

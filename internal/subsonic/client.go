@@ -276,13 +276,13 @@ func (c *Client) Starred(ctx context.Context) (*SearchResult, error) {
 	return r.Starred2, nil
 }
 
-// Star marks a song, album or artist as a favourite; Unstar reverses it.
+// Star marks a song, album or artist as a favorite; Unstar reverses it.
 func (c *Client) Star(ctx context.Context, id string) error {
 	_, err := c.call(ctx, "star", url.Values{"id": {id}})
 	return err
 }
 
-// Unstar removes a song, album or artist from favourites.
+// Unstar removes a song, album or artist from favorites.
 func (c *Client) Unstar(ctx context.Context, id string) error {
 	_, err := c.call(ctx, "unstar", url.Values{"id": {id}})
 	return err

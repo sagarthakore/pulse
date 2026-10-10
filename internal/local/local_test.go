@@ -104,7 +104,7 @@ func fixture(t *testing.T) (root, state string) {
 	song(t, root, ".hidden/secret.wav", map[string]string{taglib.Title: "Hidden"})
 	os.WriteFile(filepath.Join(root, "notes.txt"), []byte("not music"), 0o644)
 	os.WriteFile(filepath.Join(root, "broken.mp3"), []byte("definitely not an mp3"), 0o644)
-	os.WriteFile(filepath.Join(root, "Favourites.m3u8"), []byte(utf8BOM+"#EXTM3U\n"+
+	os.WriteFile(filepath.Join(root, "Favorites.m3u8"), []byte(utf8BOM+"#EXTM3U\n"+
 		"#EXTINF:1,Radiohead - Airbag\nRadiohead/OK Computer/01 Airbag.wav\n"+
 		"Loose\\Untitled Demo.wav\n"+
 		"missing/file.mp3\n"), 0o644)
@@ -175,7 +175,7 @@ func TestScanBuildsLibrary(t *testing.T) {
 	}
 
 	pls, _ := l.Playlists(ctx)
-	if len(pls) != 1 || pls[0].Name != "Favourites" || pls[0].SongCount != 2 {
+	if len(pls) != 1 || pls[0].Name != "Favorites" || pls[0].SongCount != 2 {
 		t.Fatalf("playlists = %+v", pls)
 	}
 	pl, _ := l.Playlist(ctx, pls[0].ID)

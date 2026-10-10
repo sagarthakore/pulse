@@ -29,7 +29,7 @@ type Options struct {
 	FFmpeg string
 	// CacheDir holds the scan cache.
 	CacheDir string
-	// DataDir holds favourites and play counts.
+	// DataDir holds favorites and play counts.
 	DataDir string
 }
 
@@ -323,10 +323,10 @@ func (l *Library) RandomSongs(_ context.Context, n int) ([]subsonic.Song, error)
 	return out, nil
 }
 
-// Star marks a song, album or artist as a favourite.
+// Star marks a song, album or artist as a favorite.
 func (l *Library) Star(_ context.Context, id string) error { return l.stats.setStar(id, true) }
 
-// Unstar removes a favourite.
+// Unstar removes a favorite.
 func (l *Library) Unstar(_ context.Context, id string) error { return l.stats.setStar(id, false) }
 
 // Scrobble records a play; "now playing" notifications are ignored.

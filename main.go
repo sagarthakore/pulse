@@ -184,7 +184,7 @@ func connectNavidrome(cfg *config.Config) (ui.Library, string, error) {
 	return navidrome{Client: client, alwaysTranscode: cfg.AlwaysTranscode, maxBitRate: cfg.MaxBitRate}, label, nil
 }
 
-// localOptions places the scan cache in the OS cache dir and favourites/play
+// localOptions places the scan cache in the OS cache dir and favorites/play
 // counts next to the config file.
 func localOptions(cfg *config.Config, configPath string) (local.Options, error) {
 	cacheDir, err := os.UserCacheDir()
@@ -260,7 +260,7 @@ func runSetup(cfg *config.Config, path string, firstRun bool) error {
 			fmt.Println("failed")
 			fmt.Println("  ", err)
 			if !confirm(in, "Try again?", true) {
-				return errors.New("setup cancelled")
+				return errors.New("setup canceled")
 			}
 			fmt.Println()
 			continue

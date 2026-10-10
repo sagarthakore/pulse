@@ -54,7 +54,7 @@ func (q *queue) nextIndex() int {
 	return q.skipIndex(1)
 }
 
-// skipIndex returns the track delta steps from the current one, honouring
+// skipIndex returns the track delta steps from the current one, honoring
 // repeat-all wrap-around (but not repeat-one: manual skips always move).
 func (q *queue) skipIndex(delta int) int {
 	if len(q.songs) == 0 {
@@ -120,7 +120,7 @@ func (q *queue) remove(i int) {
 	q.sync()
 }
 
-// moveItem swaps track i with its neighbour in direction delta (±1).
+// moveItem swaps track i with its neighbor in direction delta (±1).
 func (q *queue) moveItem(i, delta int) bool {
 	j := i + delta
 	if i < 0 || j < 0 || i >= len(q.songs) || j >= len(q.songs) {
@@ -138,7 +138,7 @@ func (q *queue) moveItem(i, delta int) bool {
 	return true
 }
 
-// shuffle randomises the tracks after the current one (or all tracks when
+// shuffle randomizes the tracks after the current one (or all tracks when
 // nothing is playing).
 func (q *queue) shuffle() {
 	start := q.cur + 1

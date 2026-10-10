@@ -30,7 +30,7 @@ type item struct {
 	right   string // right-aligned column (duration, year)
 	prefix  string // short leading column (track number)
 	starred bool
-	accent  lipgloss.Color // header colour
+	accent  lipgloss.Color // header color
 	tag     string         // internal marker (folder picker actions)
 	song    *subsonic.Song
 }
@@ -107,7 +107,7 @@ func (l *list) scroll(height int) {
 
 // rowStyle carries per-pane rendering options.
 type rowStyle struct {
-	accent  lipgloss.Color // selection bar colour
+	accent  lipgloss.Color // selection bar color
 	focused bool
 	marker  string // styled one-cell "now playing" marker (animated)
 }
@@ -135,7 +135,7 @@ func (l *list) render(width, height int, rs rowStyle, playingID string, playingI
 	return b.String()
 }
 
-// Column colours by item kind.
+// Column colors by item kind.
 func subColor(k itemKind) lipgloss.Color {
 	switch k {
 	case kindAlbum:

@@ -39,7 +39,7 @@ func TestQueueNextIndexRepeatModes(t *testing.T) {
 	if got := q.nextIndex(); got != 2 {
 		t.Errorf("repeat one: next = %d, want 2", got)
 	}
-	// Manual skips ignore repeat-one but honour wrap-around.
+	// Manual skips ignore repeat-one but honor wrap-around.
 	if got := q.skipIndex(1); got != 0 {
 		t.Errorf("skip with repeat one: %d, want 0", got)
 	}

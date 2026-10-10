@@ -28,7 +28,7 @@ max_bitrate = 320
 volume = 80
 
 # By default pulse leaves your terminal's own background (including any
-# transparency/acrylic) visible and only colours text, borders and accents.
+# transparency/acrylic) visible and only colors text, borders and accents.
 # Set this to paint the solid Catppuccin Mocha base/mantle backgrounds instead.
 opaque_background = false
 
