@@ -159,3 +159,7 @@ $env:PULSE_SCREENSHOT = 1; go test ./internal/ui -run TestScreenshot -count=1   
 ```sh
 PULSE_SCREENSHOT=1 go test ./internal/ui -run TestScreenshot -count=1           # bash / zsh
 ```
+
+## License
+
+[MIT](LICENSE)
