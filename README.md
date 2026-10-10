@@ -44,9 +44,29 @@ Formats pulse can't decode itself (AAC, ALAC, Opus, …) are transcoded to MP3 b
   [ffmpeg](https://ffmpeg.org/) when it's installed (`winget install ffmpeg`, `brew install ffmpeg`,
   `apt install ffmpeg`). Without it they're skipped, and pulse tells you how many
 
-## Install / build
+## Install
 
-Requires Go 1.27+. Everything is pure Go, so no C toolchain is needed on any platform:
+You need [Go](https://go.dev/dl/) 1.21 or newer; Go downloads the exact toolchain pulse needs by
+itself. Everything is pure Go, so no C compiler is needed on any platform:
+
+```sh
+go install github.com/sagarthakore/pulse@latest
+```
+
+Run the same command again to update. `pulse --version` shows which version you have.
+
+The binary lands in Go's bin directory, `$(go env GOPATH)/bin` (`%USERPROFILE%\go\bin` on
+Windows). The Windows Go installer puts that on your PATH; on macOS and Linux you may need to add
+it yourself, e.g. in `~/.zshrc` or `~/.bashrc`:
+
+```sh
+export PATH="$PATH:$(go env GOPATH)/bin"
+```
+
+A newly tagged release can take a few minutes to show up as `@latest`; name the version
+(`@v0.1.0`) to get it straight away.
+
+### Build from source
 
 ```powershell
 go build -trimpath -ldflags "-s -w" -o pulse.exe .   # Windows
@@ -64,8 +84,8 @@ Unicode and colour support; it works from both PowerShell and cmd.
 
 ## First run
 
-```powershell
-.\pulse.exe
+```sh
+pulse          # or ./pulse (.\pulse.exe on Windows) if you built it from source
 ```
 
 The first launch asks for your Navidrome server URL, username and password, tests the connection,

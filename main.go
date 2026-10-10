@@ -11,6 +11,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"runtime/debug"
 	"strings"
 	"time"
 
@@ -24,7 +25,20 @@ import (
 	"github.com/sagarthakore/pulse/internal/ui"
 )
 
+// version is set by release builds (-ldflags "-X main.version=..."). When it
+// isn't, appVersion falls back to the module version Go records in the
+// binary, e.g. v0.1.0 for `go install github.com/sagarthakore/pulse@v0.1.0`.
 var version = "dev"
+
+func appVersion() string {
+	if version != "dev" {
+		return version
+	}
+	if bi, ok := debug.ReadBuildInfo(); ok && bi.Main.Version != "" && bi.Main.Version != "(devel)" {
+		return bi.Main.Version
+	}
+	return version
+}
 
 func main() {
 	if err := run(); err != nil {
@@ -40,7 +54,7 @@ func run() error {
 	flag.Parse()
 
 	if *showVersion {
-		fmt.Println("pulse", version)
+		fmt.Println("pulse", appVersion())
 		return nil
 	}
 
