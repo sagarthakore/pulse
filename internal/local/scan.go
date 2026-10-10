@@ -528,11 +528,7 @@ func loadPlaylists(root string, rels []string, idx *index) []*playlist {
 				continue
 			}
 			line = strings.TrimPrefix(line, "file://")
-			entry := filepath.FromSlash(line)
-			if !filepath.IsAbs(entry) {
-				entry = filepath.Join(dir, entry)
-			}
-			if t, ok := byPath[normPath(entry)]; ok {
+			if t, ok := resolveEntry(byPath, dir, line); ok {
 				p.tracks = append(p.tracks, t)
 			}
 		}
@@ -541,7 +537,28 @@ func loadPlaylists(root string, rels []string, idx *index) []*playlist {
 	return out
 }
 
-// normPath normalises a path for comparison (case-insensitive where the
+// resolveEntry looks up a playlist entry relative to the playlist's dir.
+// Playlists written on Windows use backslash separators, which are ordinary
+// filename characters elsewhere, so the entry is tried as written first and
+// then with backslashes read as separators.
+func resolveEntry(byPath map[string]*track, dir, line string) (*track, bool) {
+	candidates := []string{line}
+	if alt := strings.ReplaceAll(line, `\`, "/"); alt != line {
+		candidates = append(candidates, alt)
+	}
+	for _, c := range candidates {
+		entry := filepath.FromSlash(c)
+		if !filepath.IsAbs(entry) {
+			entry = filepath.Join(dir, entry)
+		}
+		if t, ok := byPath[normPath(entry)]; ok {
+			return t, true
+		}
+	}
+	return nil, false
+}
+
+// normPath normalizes a path for comparison (case-insensitive where the
 // filesystem usually is).
 func normPath(p string) string {
 	p = filepath.Clean(p)
