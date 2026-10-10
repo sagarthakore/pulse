@@ -13,6 +13,7 @@ require (
 	github.com/mewkiz/flac v1.0.14
 	github.com/muesli/termenv v0.16.0
 	github.com/zalando/go-keyring v0.2.8
+	go.senan.xyz/taglib v0.14.0
 	golang.org/x/term v0.47.0
 )
 
@@ -45,7 +46,6 @@ require (
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/tetratelabs/wazero v1.11.1-0.20260428013916-2bbd517b7633 // indirect
 	github.com/xo/terminfo v1.2.0 // indirect
-	go.senan.xyz/taglib v0.14.0 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 	golang.org/x/text v0.43.0 // indirect
 )
